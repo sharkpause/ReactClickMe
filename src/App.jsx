@@ -5,26 +5,22 @@ export default class Button extends React.Component {
 		super(props);
 
 		this.state = {
-			text: 'Click me!'
+			counter: 0
 		};
-
-		this.num = 1;
 
 		this.handleClick = this.handleClick.bind(this);
 	}
 
 	handleClick() {
-		this.setState({
-			text: 'Count: ' + this.num
-		});
-
-		++this.num;
+		this.setState(state => ({
+			counter: state.counter + 1
+		}));
 	}
 
 	render() {
 		return (
 			<div>
-				<h1>{this.state.text}</h1>
+				<h1>Count: {this.state.counter}</h1>
 				<button onClick={this.handleClick}>Click me</button>
 			</div>
 		);
